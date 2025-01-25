@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanth Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Nerko+One&display=swap" rel="stylesheet">
+    <style>
+        /* Gradient Background */
+        body {
+            margin: 0;
+            font-family: "Pricedown", "Nerko One", cursive;
+            background-color: #00DBDE;
+            background: linear-gradient(90deg, #808080, #2b2b2b);
+            color: white;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #00DBDE;
+            background: linear-gradient(90deg, #808080, #2b2b2b);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo img {
+            max-height: 50px;
+        }
+
+        .header .search-bar {
+            display: flex;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.2);
+            font-size: 22px;
+        }
+	.clear-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+        .header .search-bar button {
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            font-size: 22px;
+        }
+
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            position: relative;
+            font-size: 22px;
+        }
+
+        .header .nav-links a:hover {
+            color: #febd69;
+        }
+
+        /* Cart Number */
+        .cart-number {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: #ff9900;
+            color: white;
+            font-size: 12px;
+            border-radius: 50%;
+            padding: 2px 6px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1));
+            margin: 20px 0;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            margin-top: 20px;
+        }
+
+        /* Products Section */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            position: relative;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: calc(25% - 40px);
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: scale(1);
+        }
+
+        .product:hover {
+            transform: translateY(-10px) scale(0.75);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img, .product video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .product .title {
+            font-size: 22px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        /* Translucent Price Box */
+        .product .price {
+            position: bottom-left;
+            bottom: 45px;
+            left: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 24px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #111;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes glide {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .product:hover {
+            animation: glide 1s infinite;
+        }
+	@keyframes cartJump {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    30% {
+        transform: scale(1.2) translateY(-10px);
+    }
+    50% {
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.cart-icon-jump {
+    animation: cartJump 0.6s ease;
+}
+
+.footer {
+    background: #2b2b2b;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    margin: 15px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section ul, .footer-section li {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #febd69;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.social-icons a:hover {
+    color: #febd69;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="demo.html"><img src="Kanthazon (1) (1).png" alt="Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search Here">
+            <button onclick="searchProducts()"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="nav-links">
+            <a href="demo.html">Home</a>
+            <a href="About page.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="#" class="cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-number">0</span>
+            </a>
+        </div>
+    </header>
+    
+    <!-- Banner Section -->
+    <div class="banner">
+        <!-- Add your banner image here -->
+    </div>
+
+    <main class="products" id="productContainer">
+        <div class="divider"></div>
+        <div class="product" data-name="NareshKanth">
+            <img src="D:\My Creation\Kanthazon\kanth.jpg" alt="Product Image">
+            <div class="title">NareshKanth</div>
+            <div class="price">₹49,999</div>
+            <button class="add-to-cart-btn" onclick="addToCart(1)">Add to Cart</button>
+        </div>
+
+        <div class="divider"></div>
+        <div class="product" data-name="NareshKanth Deluxe">
+            <img src="D:\My Creation\Kanthazon\kanth.jpg" alt="Product Image">
+            <div class="title">NareshKanth Deluxe</div>
+            <div class="price">₹59,999</div>
+            <button class="add-to-cart-btn" onclick="addToCart(2)">Add to Cart</button>
+        </div>
+
+        <div class="divider"></div>
+        <div class="product" data-name="NareshKanth Pro">
+            <img src="D:\My Creation\Kanthazon\kanth.jpg" alt="Product Image">
+            <div class="title">NareshKanth Pro</div>
+            <div class="price">₹69,999</div>
+            <button class="add-to-cart-btn" onclick="addToCart(3)">Add to Cart</button>
+        </div>
+    </main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>
+                Kanthazon is your one-stop destination for quality products and unbeatable prices. 
+                Shop with confidence and experience the best online shopping.
+            </p>
+        </div>
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p><i class="fa fa-phone"></i> 1-800-419-0157 </p>
+            <p><i class="fa fa-envelope"></i> support@kanthstore.com</p>
+            <p><i class="fa fa-map-marker-alt"></i> Dubai Main Road, Dubai</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Kanth Store. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/nareshkanth.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        let cartCount = 0;
+
+        function addToCart(productId) {
+    let quantity = 1;  // Removed quantity selection
+    cartCount += quantity;
+    const cartIcon = document.querySelector(".cart-number");
+    cartIcon.textContent = cartCount;
+
+    const cartElement = document.querySelector(".cart i"); // Selects the cart icon
+    cartElement.classList.add("cart-icon-jump");
+
+    // Remove the animation class after it's done
+    setTimeout(() => {
+        cartElement.classList.remove("cart-icon-jump");
+    }, 600);
+}
+
+        function searchProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                let productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

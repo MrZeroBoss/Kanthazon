@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanth Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Typography */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header .logo img {
+            width: 150px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Main Content */
+        .main-content {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #fff;
+            margin: 20px 0;
+        }
+
+        .main-content .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-content h2 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+        }
+
+        .about-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-section h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        footer .footer-section {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-section h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-section p,
+        footer .footer-section ul {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        footer .footer-section ul {
+            list-style-type: none;
+        }
+
+        footer .footer-section ul li {
+            margin: 10px 0;
+        }
+
+        footer .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        footer .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #222;
+        }
+
+        footer .footer-bottom p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            footer .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            footer .footer-section {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+           <a href="demo.html"> <img src="Kanthazon (1) (1).png" alt="Kanth Store"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="demo.html">Shop</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="main-content">
+        <div class="container">
+            <h2>Welcome to Kanthazon</h2>
+            <p>Your one-stop shop for quality products at great prices. Explore our diverse range of products and enjoy a seamless shopping experience.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>About Kanthazon </h2>
+            <p>Kanthazon is a leading online retailer offering a vast range of products from electronics to home decor. Our goal is to provide customers with an excellent shopping experience, whether they're looking for the latest gadgets or stylish home accessories.</p>
+            <p>We pride ourselves on offering only the highest quality products at affordable prices. With fast shipping, secure payment methods, and a dedicated customer service team, we ensure a hassle-free shopping experience every time.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>Kanthazon brings you the best in retail with top-notch customer service and a wide variety of products. Shop with us today!</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-phone"></i> 1-800-419-0157</p>
+                <p><i class="fa fa-envelope"></i> support@kanthstore.com</p>
+                <p><i class="fa fa-map-marker-alt"></i> Dubai Main Road, Dubai</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kanthazon. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/nareshkanth.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
